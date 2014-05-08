@@ -1,0 +1,122 @@
+{
+
+    /* Enforcing */
+
+    // Global vars
+    "globals": {
+        // true stands for non read-only, false for read-only
+
+        // XDR is XHR Level2 kind of thing for CORS in IE <= 9
+        "XDomainRequest": false
+    },
+
+    // Prohibits the use of bitwise operators
+    "bitwise": true,
+
+    // No camelCase enforcement
+    "camelcase": false,
+
+    // This option requires you to always put curly braces around blocks in loops and conditionals
+    "curly": true,
+
+    // This options prohibits the use of == and != in favor of === and !==
+    "eqeqeq": true,
+
+    // No legacy stuff
+    // Disabled due to old version of jshint 0.9.x on our dev env. Current is 2.x
+    // "es3": false,
+
+    // No obj.hasOwnProperty(key) enforcement in for in loops
+    "forin": false,
+
+    // This option prohibits the use of immediate function invocations without wrapping them in parentheses
+    "immed": false,
+
+    // Should be 4 spaces but due to our current convention of YUI module indents it will annoy you on every single line
+    "indent": false,
+
+    // This option prohibits the use of a variable before it was defined.
+    "latedef": false,
+
+    // This option requires you to capitalize names of constructor functions
+    "newcap": false,
+
+    // This option prohibits the use of arguments.caller and arguments.callee
+    "noarg": false,
+
+    // This option warns when you have an empty block in your code
+    "noempty": true,
+
+    // This option prohibits the use of unary increment and decrement operators (++/--)
+    "plusplus": false,
+
+    // This option enforces the consistency of quotation marks used throughout your code
+    // true - some consistency, "single" or "double"
+    "quotmark": false,
+
+    // This option prohibits the use of explicitly undeclared variables
+    "undef": true,
+
+    // This option warns when you define and never use your variables
+    "unused": true,
+
+    // Strict mode is off
+    "strict": false,
+
+    // This option makes it an error to leave a trailing whitespace in your code
+    "trailing": true,
+
+    // This option lets you set the max number of formal parameters allowed per function
+    // I would go for 3. In case of more - object as param
+    "maxparams": false,
+
+    // This option lets you control how nested do you want your blocks to be
+    "maxdepth": 3,
+
+    // This option lets you set the max number of statements allowed per function:
+    "maxstatements": false,
+
+    // This option lets you control cyclomatic complexity throughout your code
+    // We can play around with this
+    "maxcomplexity": false,
+
+    // This option lets you set the maximum length of a line.
+    "maxlen": 120,
+
+    // Defined global vars which are used elsewhere
+    // Disabled due to old version of jshint 0.9.x on our dev env. Current is 2.x
+    // "exported": {},
+
+    // This option prohibits the use of unsafe . in regular expressions
+    "regexp": true,
+
+    /* Relaxing options */
+
+    // Add rules like multisrt & scripturl, sub, supernew or more here if needed
+
+    // This option suppresses warnings about functions inside of loops
+    "loopfunc": true,
+
+    /* Environments */
+
+    // This option defines globals exposed by modern browsers
+    "browser": true,
+
+    // This option defines globals that are usually used for logging poor-man's debugging
+    "devel": false,
+
+    // This option defines globals available when your code is running inside of the Node runtime environment
+    "node": true,
+
+    // This option defines globals available when your code is running inside of a Web Worker
+    "worker": true,
+
+    // This option defines globals exposed by the YUI JavaScript framework
+    "yui": true,
+
+    /* Legacy */
+
+    // Disable Douglas Crockford's JavaScript coding style :)
+    "white": false
+
+}
