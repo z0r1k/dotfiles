@@ -6,6 +6,7 @@ alias nw="/Users/z0r1k/Applications/node-webkit/node-webkit.app/Contents/MacOS/n
 alias ls='command ls -G'
 alias la='ls -laF -G'
 alias ll='ls -lF -G'
+alias l='ls'
 
 # Go up one and two directory
 alias ..='cd ..'
@@ -13,7 +14,7 @@ alias ...='cd ../..'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
+alias localip="ipconfig getifaddr en0 || ipconfig getifaddr en4"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
@@ -32,3 +33,20 @@ alias cls='clear'
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# Canonical hex dump; some systems have this symlinked
+command -v hd > /dev/null || alias hd="hexdump -C"
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# OS X has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+# JavaScriptCore REPL
+jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
+[ -e "${jscbin}" ] && alias jsc="${jscbin}"
+unset jscbin
+
+# Faster npm for europeans
+command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"

@@ -1,122 +1,199 @@
 {
+  /**
+   ***************
+   ** Enforcing **
+   ***************
+   */
+  // true produce more warnings, false -suppress them
 
-    /* Enforcing */
+  /**
+   * Global vars
+   * true stands for non read-only, false for read-only
+   */
+  "globals": {
+    // XDR is XHR Level2 kind of thing for CORS in IE <= 9
+    "XDomainRequest": false,
 
-    // Global vars
-    "globals": {
-        // true stands for non read-only, false for read-only
+    // Browser console
+    "console": true,
 
-        // XDR is XHR Level2 kind of thing for CORS in IE <= 9
-        "XDomainRequest": false
-    },
+    // RequireJS related constants
+    "define": true,
+    "require": true,
+    "requirejs": true,
 
-    // Prohibits the use of bitwise operators
-    "bitwise": true,
+    // Mocha
+    "describe": false,
+    "it": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false,
 
-    // No camelCase enforcement
-    "camelcase": false,
+    // WebRTC, GetUserMedia, Stream
+    "MediaStreamTrack": true
+  },
 
-    // This option requires you to always put curly braces around blocks in loops and conditionals
-    "curly": true,
+  // Prohibits the use of bitwise operators
+  "bitwise": true,
 
-    // This options prohibits the use of == and != in favor of === and !==
-    "eqeqeq": true,
+  // No camelCase enforcement
+  "camelcase": false,
 
-    // No legacy stuff
-    // Disabled due to old version of jshint 0.9.x on our dev env. Current is 2.x
-    // "es3": false,
+  // This option requires you to always put curly braces around blocks in loops and conditionals
+  "curly": true,
 
-    // No obj.hasOwnProperty(key) enforcement in for in loops
-    "forin": false,
+  // This options prohibits the use of == and != in favor of === and !==
+  "eqeqeq": true,
 
-    // This option prohibits the use of immediate function invocations without wrapping them in parentheses
-    "immed": false,
+  // IE6-9 compatibility
+  "es3": true,
 
-    // Should be 4 spaces but due to our current convention of YUI module indents it will annoy you on every single line
-    "indent": false,
+  // No obj.hasOwnProperty(key) enforcement in for in loops
+  "forin": false,
 
-    // This option prohibits the use of a variable before it was defined.
-    "latedef": false,
+  // This option prohibits the use of immediate function invocations without wrapping them in parentheses
+  "immed": false,
 
-    // This option requires you to capitalize names of constructor functions
-    "newcap": false,
+  // This options prohibits overwriting prototypes of native objects such as Array, Date and so on
+  "freeze": true,
 
-    // This option prohibits the use of arguments.caller and arguments.callee
-    "noarg": false,
+  // Tab size
+  "indent": 4,
 
-    // This option warns when you have an empty block in your code
-    "noempty": true,
+  /**
+   * This option prohibits the use of a variable before it was defined
+   * Setting this option to "nofunc" will allow function declarations to be ignored
+   */
+  "latedef": "nofunc",
 
-    // This option prohibits the use of unary increment and decrement operators (++/--)
-    "plusplus": false,
+  // This option requires you to capitalize names of constructor functions
+  "newcap": false,
 
-    // This option enforces the consistency of quotation marks used throughout your code
-    // true - some consistency, "single" or "double"
-    "quotmark": false,
+  // This option prohibits the use of arguments.caller and arguments.callee
+  "noarg": false,
 
-    // This option prohibits the use of explicitly undeclared variables
-    "undef": true,
+  // This option warns when you have an empty block in your code
+  "noempty": true,
 
-    // This option warns when you define and never use your variables
-    "unused": true,
+  // This option warns about "non-breaking whitespace" characters.
+  "nonbsp": false,
 
-    // Strict mode is off
-    "strict": false,
+  // This option prohibits the use of constructor functions for side-effects.
+  "nonew": false,
 
-    // This option makes it an error to leave a trailing whitespace in your code
-    "trailing": true,
+  // This option prohibits the use of unary increment and decrement operators (++/--)
+  "plusplus": false,
 
-    // This option lets you set the max number of formal parameters allowed per function
-    // I would go for 3. In case of more - object as param
-    "maxparams": false,
+  /**
+   * This option enforces the consistency of quotation marks used throughout your code
+   * true - some consistency, "single" or "double"
+   */
+  "quotmark": false,
 
-    // This option lets you control how nested do you want your blocks to be
-    "maxdepth": 3,
+  // This option prohibits the use of explicitly undeclared variables
+  "undef": true,
 
-    // This option lets you set the max number of statements allowed per function:
-    "maxstatements": false,
+  // This option warns when you define and never use your variables
+  "unused": true,
 
-    // This option lets you control cyclomatic complexity throughout your code
-    // We can play around with this
-    "maxcomplexity": false,
+  // Strict mode is off
+  "strict": false,
 
-    // This option lets you set the maximum length of a line.
-    "maxlen": 120,
+  // This option makes it an error to leave a trailing whitespace in your code
+  "trailing": true,
 
-    // Defined global vars which are used elsewhere
-    // Disabled due to old version of jshint 0.9.x on our dev env. Current is 2.x
-    // "exported": {},
+  /**
+   * This option lets you set the max number of formal parameters allowed per function
+   * I would go for 3. In case of more - object as param
+   *
+   *  E.g.
+   *
+   *  obj.someFunc(first, second, third)
+   *
+   *  or
+   *
+   *  obj.someFunc(first, second, {
+   *    optionalParam: "value",
+   *    anotherOptionalParam: "value"
+   *  });
+   *
+   *  or
+   *
+   *  obj.someFunc({
+   *    first: "value",
+   *    second: "value",
+   *    optionalParam: "value",
+   *    anotherOptionalParam: "value"
+   *  });
+   *
+   * Unfortunately we have from 3 to 5 params in some places
+   * Not changing to another solution because this API is beeing used and 2nd or 3rd parties should be notified first
+   *
+   */
+  // "maxparams": 3,
 
-    // This option prohibits the use of unsafe . in regular expressions
-    "regexp": true,
+  // This option lets you control how nested do you want your blocks to be
+  "maxdepth": 4,
 
-    /* Relaxing options */
+  // This option lets you set the max number of statements allowed per function
+  "maxstatements": false,
 
-    // Add rules like multisrt & scripturl, sub, supernew or more here if needed
+  /**
+   * This option lets you control cyclomatic complexity throughout your code
+   * We can play around with this
+   */
+  "maxcomplexity": false,
 
-    // This option suppresses warnings about functions inside of loops
-    "loopfunc": true,
+  /**
+   * This option lets you set the maximum length of a line
+   * Not crucial at the moment
+   */
+  // "maxlen": 135,
 
-    /* Environments */
+  // This option prohibits the use of unsafe . in regular expressions
+  "regexp": true,
 
-    // This option defines globals exposed by modern browsers
-    "browser": true,
+  /**
+   **********************
+   ** Relaxing options **
+   **********************
+   */
+  // Add rules like multisrt & scripturl, sub, supernew or more here if needed
 
-    // This option defines globals that are usually used for logging poor-man's debugging
-    "devel": false,
+  // This option suppresses warnings about functions inside of loops
+  "loopfunc": true,
 
-    // This option defines globals available when your code is running inside of the Node runtime environment
-    "node": true,
+  // This option suppresses warnings about the use of eval
+  "evil": false,
 
-    // This option defines globals available when your code is running inside of a Web Worker
-    "worker": true,
+  // This option suppresses most of the warnings about possibly unsafe line breakings in your code
+  "laxbreak": true,
 
-    // This option defines globals exposed by the YUI JavaScript framework
-    "yui": true,
+  // This option suppresses warnings about comma-first coding style
+  "laxcomma": false,
 
-    /* Legacy */
+  // a reserved word warning (complains about package & delete in Gruntfile.js)
+  "-W024": true,
 
-    // Disable Douglas Crockford's JavaScript coding style :)
-    "white": false
+  /**
+   ******************
+   ** Environments **
+   ******************
+   */
 
+  // This option defines globals exposed by modern browsers
+  "browser": true,
+
+  // This option defines globals that are usually used for logging poor-man's debugging
+  "devel": false,
+
+  // This option defines globals exposed by the jQuery JavaScript library
+  "jquery": true,
+
+  // This option defines globals available when your code is running inside of the Node runtime environment
+  "node": true,
+
+  // This option defines globals available when your code is running inside of a Web Worker
+  "worker": true
 }

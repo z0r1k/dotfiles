@@ -1,5 +1,5 @@
 # PATH settings
-export PATH=/usr/local/bin:/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -66,19 +66,5 @@ source `brew --repository`/Library/Contributions/brew_bash_completion.sh
 # Grunt completion
 eval "$(grunt --completion=bash)"
 
-# Canonical hex dump; some systems have this symlinked
-command -v hd > /dev/null || alias hd="hexdump -C"
-
-# OS X has no `md5sum`, so use `md5` as a fallback
-command -v md5sum > /dev/null || alias md5sum="md5"
-
-# OS X has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum > /dev/null || alias sha1sum="shasum"
-
-# JavaScriptCore REPL
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
-[ -e "${jscbin}" ] && alias jsc="${jscbin}"
-unset jscbin
-
-# Faster npm for europeans
-command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
+# Gulp completion
+eval "$(gulp --completion=bash)"
