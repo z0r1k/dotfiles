@@ -1,5 +1,5 @@
 # PATH settings
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/X11/bin:$PATH
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
