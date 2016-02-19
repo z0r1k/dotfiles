@@ -11,14 +11,8 @@
    * true stands for non read-only, false for read-only
    */
   "globals": {
-    // XDR is XHR Level2 kind of thing for CORS in IE <= 9
-    "XDomainRequest": false,
-
-    // Browser console
-    "console": true,
-
     // RequireJS related constants
-    "define": true,
+    "define": false,
     "require": true,
     "requirejs": true,
 
@@ -31,7 +25,17 @@
     "afterEach": false,
 
     // WebRTC, GetUserMedia, Stream
-    "MediaStreamTrack": true
+    "MediaStreamTrack": false,
+
+    // XDR is XHR Level2 kind of thing for CORS in IE <= 9
+    "XDomainRequest": false,
+
+    // Browser console
+    "console": true,
+    "JSON": false,
+
+    // testpage
+    "angular": false
   },
 
   // Prohibits the use of bitwise operators
@@ -53,7 +57,7 @@
   "forin": false,
 
   // This option prohibits the use of immediate function invocations without wrapping them in parentheses
-  "immed": false,
+  "immed": true,
 
   // This options prohibits overwriting prototypes of native objects such as Array, Date and so on
   "freeze": true,
@@ -71,7 +75,7 @@
   "newcap": false,
 
   // This option prohibits the use of arguments.caller and arguments.callee
-  "noarg": false,
+  "noarg": true,
 
   // This option warns when you have an empty block in your code
   "noempty": true,
