@@ -1,11 +1,11 @@
 # Application aliases
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias nw="/Users/z0r1k/Applications/node-webkit/node-webkit.app/Contents/MacOS/node-webkit"
+alias nw="/Users/z0r1k/Applications/node-webkit/nwjs.app/Contents/MacOS/nwjs"
 
 # LS settings
 alias ls='command ls -G'
-alias la='ls -laF -G'
-alias ll='ls -lF -G'
+alias la='ls -lahF -G'
+alias ll='ls -lhF -G'
 alias l='ls'
 
 # Go up one and two directory
@@ -28,6 +28,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Other
 alias fucking='sudo'
+eval "$(thefuck --alias)"
 alias psg='ps aux | grep -v grep | grep'
 alias cls='clear'
 
