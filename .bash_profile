@@ -43,7 +43,7 @@ done
 #
 
 # Homebrew completion
-source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+source `brew --repository`/completions/bash/brew
 #if [[ -f $(brew --prefix)/share/bash-completion/bash_completion ]]; then
 #    . $(brew --prefix)/share/bash-completion/bash_completion
 #fi
