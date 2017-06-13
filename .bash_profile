@@ -68,3 +68,5 @@ eval "$(grunt --completion=bash)"
 
 # Gulp completion
 eval "$(gulp --completion=bash)"
+
+eval "$(direnv hook $0)"
