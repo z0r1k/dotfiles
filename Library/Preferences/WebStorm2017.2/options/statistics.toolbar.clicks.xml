@@ -1,7 +1,0 @@
-<application>
-  <component name="ToolbarClicksCollector">
-    <counts>
-      <entry action="org.intellij.plugins.markdown.ui.actions.editorLayout.EditorOnlyLayoutChangeAction@EditorToolbar" count="1" />
-    </counts>
-  </component>
-</application>
