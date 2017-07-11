@@ -66,4 +66,5 @@ eval "$(grunt --completion=bash)"
 # Gulp completion
 eval "$(gulp --completion=bash)"
 
+#eval "$(ssh-agent -s)"
 eval "$(direnv hook $0)"
