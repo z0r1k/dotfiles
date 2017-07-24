@@ -41,24 +41,12 @@ done
 
 # Homebrew completion
 source `brew --repository`/completions/bash/brew
-#if [[ -f $(brew --prefix)/share/bash-completion/bash_completion ]]; then
-#    . $(brew --prefix)/share/bash-completion/bash_completion
-#fi
 
 # If possible, add tab completion for many more commands
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
+fi
 [ -f /etc/bash_completion ] && source /etc/bash_completion
-
-# Vagrant completion
-[ -f /usr/local/etc/bash_completion.d/vagrant ] && source /usr/local/etc/bash_completion.d/vagrant
-
-# Docker completion
-[ -f /usr/local/etc/bash_completion.d/docker ] && source /usr/local/etc/bash_completion.d/docker
-
-# npm completion
-[ -f /usr/local/etc/bash_completion.d/npm ] && source /usr/local/etc/bash_completion.d/npm
-
-# Git completion
-[ -f /usr/local/etc/bash_completion.d/git-completion.bash ] && source /usr/local/etc/bash_completion.d/git-completion.bash
 
 # Grunt completion
 eval "$(grunt --completion=bash)"
@@ -66,5 +54,7 @@ eval "$(grunt --completion=bash)"
 # Gulp completion
 eval "$(gulp --completion=bash)"
 
-#eval "$(ssh-agent -s)"
+# Initializing direnv
 eval "$(direnv hook $0)"
+
+#eval "$(ssh-agent -s)"
