@@ -43,10 +43,14 @@ done
 source `brew --repository`/completions/bash/brew
 
 # If possible, add tab completion for many more commands
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-	. $(brew --prefix)/etc/bash_completion
-fi
-[ -f /etc/bash_completion ] && source /etc/bash_completion
+[ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
+#if [ -d $(brew --prefix)/etc/bash_completion.d ]; then
+# 	for F in $(brew --prefix)/etc/bash_completion.d/*; do
+#         if [ -f "${F}" ]; then
+#             . "${F}";
+#         fi
+# 	done
+# fi
 
 # Grunt completion
 eval "$(grunt --completion=bash)"
