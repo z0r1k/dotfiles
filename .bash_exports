@@ -30,13 +30,13 @@ export GREP_COLOR='1;33'
 
 # AWS
 export JAVA_HOME=$(/usr/libexec/java_home)
-export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1/
-export AWS_ACCESS_KEY=AKIAIFLBMKUQBZD6RICA
-export AWS_SECRET_KEY=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
-export EC2_URL=https://ec2.eu-central-1.amazonaws.com
+#export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1/
+#export AWS_ACCESS_KEY=
+#export AWS_SECRET_KEY=
+#export EC2_URL=https://ec2.eu-central-1.amazonaws.com
 
 # Homebrew
-export HOMEBREW_GITHUB_API_TOKEN="c51849a59815928125bdf55aae00ca32cb69cfea"
+#export HOMEBREW_GITHUB_API_TOKEN=""
 
 # PATH settings
 export PATH=$PATH:/usr/local/bin:/usr/X11/bin:/usr/local/opt/go/libexec/bin:/usr/local/share/npm/bin:$EC2_HOME/bin
