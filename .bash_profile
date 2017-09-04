@@ -40,23 +40,40 @@ done
 #
 
 # Homebrew completion
+#if [[ -f $(brew --prefix)/share/bash-completion/bash_completion ]]; then
+#    . $(brew --prefix)/share/bash-completion/bash_completion
+#fi
+chmod +x `brew --repository`/completions/bash/brew
 source `brew --repository`/completions/bash/brew
 
 # If possible, add tab completion for many more commands
 [ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
 #if [ -d $(brew --prefix)/etc/bash_completion.d ]; then
-# 	for F in $(brew --prefix)/etc/bash_completion.d/*; do
+#   for F in $(brew --prefix)/etc/bash_completion.d/*; do
 #         if [ -f "${F}" ]; then
 #             . "${F}";
 #         fi
-# 	done
+#   done
 # fi
+
+# Docker completion
+[ -f ~/docker-completion/docker-compose.bash-completion ] && source ~/docker-completion/docker-compose.bash-completion
+[ -f ~/docker-completion/docker-machine.bash-completion ] && source ~/docker-completion/docker-machine.bash-completion
+[ -f ~/docker-completion/docker.bash-completion ] && source ~/docker-completion/docker.bash-completion
 
 # Grunt completion
 eval "$(grunt --completion=bash)"
 
-# Gulp completion
-eval "$(gulp --completion=bash)"
+eval "$(thefuck --alias)"
+
+# Canonical hex dump; some systems have this symlinked
+command -v hd > /dev/null || alias hd="hexdump -C"
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# OS X has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
 # Initializing direnv
 eval "$(direnv hook $0)"

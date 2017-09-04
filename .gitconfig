@@ -5,17 +5,17 @@
 [core]
 	excludesfile = /Users/z0r1k/.gitignore_global
 
-[difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path =
+#[difftool "sourcetree"]
+#	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+#	path =
 
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+#[mergetool "sourcetree"]
+#	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+#	trustExitCode = true
 [mergetool]
 	keepBackup = true
 
@@ -36,19 +36,26 @@
     added = yellow
     changed = green
     untracked = cyan
-
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
 
 [alias]
-	#create-pull-request = !sh -c 'stash pull-request $0'
+    #create-pull-request = !sh -c 'stash pull-request $0'
     st = status
     tree = log --graph --decorate --pretty=oneline --abbrev-commit
     logdiff = log --all --decorate --pretty=oneline --abbrev-commit
 
 [push]
-	default = simple
+    default = simple
     
 [url "git@prod01-gitlab01.geeny.local:"]
 	insteadOf = https://prod01-gitlab01.geeny.local/
