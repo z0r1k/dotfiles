@@ -57,9 +57,9 @@ source `brew --repository`/completions/bash/brew
 # fi
 
 # Docker completion
-[ -f ~/docker-completion/docker-compose.bash-completion ] && source ~/docker-completion/docker-compose.bash-completion
-[ -f ~/docker-completion/docker-machine.bash-completion ] && source ~/docker-completion/docker-machine.bash-completion
-[ -f ~/docker-completion/docker.bash-completion ] && source ~/docker-completion/docker.bash-completion
+[ -f ~/.docker-completion/docker-compose.bash-completion ] && source ~/.docker-completion/docker-compose.bash-completion
+[ -f ~/.docker-completion/docker-machine.bash-completion ] && source ~/.docker-completion/docker-machine.bash-completion
+[ -f ~/.docker-completion/docker.bash-completion ] && source ~/.docker-completion/docker.bash-completion
 
 # Grunt completion
 eval "$(grunt --completion=bash)"
