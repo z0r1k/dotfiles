@@ -1,6 +1,6 @@
 # Application aliases
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias nw="/Users/z0r1k/Applications/node-webkit/nwjs.app/Contents/MacOS/nwjs"
+alias nw="/Users/z0r1k/Applications/node-webkit-v0.8.4-osx-ia32/nwsnapshot"
 
 # LS settings
 alias ls='command ls -G'
