@@ -79,3 +79,5 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 eval "$(direnv hook $0)"
 
 #eval "$(ssh-agent -s)"
+
+complete -C /usr/local/bin/vault vault
