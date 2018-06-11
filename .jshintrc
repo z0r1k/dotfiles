@@ -1,20 +1,15 @@
 {
-  "esversion": 6,
-
   "globals": {
     "fetch": true,
-
     "define": false,
     "require": true,
     "requirejs": true,
-
     "describe": false,
     "it": false,
     "before": false,
     "beforeEach": false,
     "after": false,
     "afterEach": false,
-
     "MediaStreamTrack": false,
     "XDomainRequest": false,
     "console": true,
@@ -25,6 +20,7 @@
     "Promise": false
   },
 
+  "esversion": 6,
   "bitwise": true,
   "camelcase": false,
   "curly": true,

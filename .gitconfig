@@ -49,13 +49,13 @@
     smudge = git-media-smudge %f
 
 [alias]
-    #create-pull-request = !sh -c 'stash pull-request $0'
+    stash-create-pull-request = !sh -c 'stash pull-request $0'
     st = status
     tree = log --graph --decorate --pretty=oneline --abbrev-commit
     logdiff = log --all --decorate --pretty=oneline --abbrev-commit
 
 [push]
     default = simple
-    
+
 [url "git@prod01-gitlab01.geeny.local:"]
 	insteadOf = https://prod01-gitlab01.geeny.local/
