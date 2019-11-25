@@ -1,7 +1,7 @@
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{bash_prompt,bash_exports,bash_aliases,path,functions,extra}; do
+for file in ~/.{bash_exports,bash_aliases,bash_prompt,path,functions,extra}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
@@ -32,28 +32,38 @@ chmod +x `brew --repository`/completions/bash/brew
 source `brew --repository`/completions/bash/brew
 
 # If possible, add tab completion for many more commands
-[ -f $(brew --prefix)/etc/bash_completion ] && LANG=C LC_ALL=C source $(brew --prefix)/etc/bash_completion
+[ -f $(brew --prefix)/etc/bash_completion.d ] && LANG=C LC_ALL=C source $(brew --prefix)/etc/bash_completion.d
+
+# bash-completion@2
+if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+	. $(brew --prefix)/share/bash-completion/bash_completion
+fi
 
 # Docker completion
+[ -f ~/.docker-completion/docker.bash-completion ] && source ~/.docker-completion/docker.bash-completion
 [ -f ~/.docker-completion/docker-compose.bash-completion ] && source ~/.docker-completion/docker-compose.bash-completion
 [ -f ~/.docker-completion/docker-machine.bash-completion ] && source ~/.docker-completion/docker-machine.bash-completion
-[ -f ~/.docker-completion/docker.bash-completion ] && source ~/.docker-completion/docker.bash-completion
+
+# GIT completion
+[ -f ~/.git-completion/git-completion.bash ] && source ~/.git-completion/git-completion.bash
 
 # Grunt completion
 eval "$(grunt --completion=bash)"
 
-eval "$(thefuck --alias)"
+# Vault completion
+complete -C /usr/local/bin/vault vault
 
-# Canonical hex dump; some systems have this symlinked
-command -v hd > /dev/null || alias hd="hexdump -C"
+# Azure completion
+[ -f ~/.azure-completion/az.bash-completion ] && source ~/.azure-completion/az.bash-completion
 
-# OS X has no `md5sum`, so use `md5` as a fallback
-command -v md5sum > /dev/null || alias md5sum="md5"
+# Kube completion
+source <(kubectl completion bash)
 
-# OS X has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum > /dev/null || alias sha1sum="shasum"
+# This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Initializing direnv
 eval "$(direnv hook $0)"
 
-complete -C /usr/local/bin/vault vault
+# This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use

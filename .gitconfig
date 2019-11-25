@@ -1,21 +1,14 @@
 [user]
 	name = Mykhailo Lieibenson
-	email = mykhailo@geeny.io
+	email = m.lieibenson@osram.com
 
 [core]
 	excludesfile = /Users/z0r1k/.gitignore_global
-
-#[difftool "sourcetree"]
-#	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-#	path =
 
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
 
-#[mergetool "sourcetree"]
-#	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-#	trustExitCode = true
 [mergetool]
 	keepBackup = true
 
@@ -37,12 +30,12 @@
     changed = green
     untracked = cyan
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
 
 [filter "media"]
     clean = git-media-clean %f
@@ -58,4 +51,7 @@
     default = simple
 
 [url "git@prod01-gitlab01.geeny.local:"]
-	insteadOf = https://prod01-gitlab01.geeny.local/
+    insteadOf = https://prod01-gitlab01.geeny.local/
+
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/

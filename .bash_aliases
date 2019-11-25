@@ -1,12 +1,10 @@
 # Application aliases
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias nw="/Users/z0r1k/Applications/node-webkit-v0.8.4-osx-ia32/nwsnapshot"
+#alias nw="/Users/z0r1k/Applications/node-webkit-v0.8.4-osx-ia32/nwsnapshot"
 
 # LS settings
-alias ls='command ls -G'
-alias la='ls -lahF -G'
-alias ll='ls -lhF -G'
-alias l='ls'
+alias la='ls -lashbFHOG'
+alias ll='ls -lh'
 
 # Go up one and two directory
 alias ..='cd ..'
