@@ -1,9 +1,16 @@
+# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color
+
+# Set CLICOLOR if you want Ansi Colors in iTerm2
+export CLICOLOR=1
+
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignorespace:ignoredups
+
 # Make some commands not show up in history
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date"
 
 # Prefer US English and use UTF-8
 export LANG="en_US"
@@ -13,6 +20,7 @@ export LC_ALL="en_US.UTF-8"
 export LESS_TERMCAP_md="$ORANGE"
 
 # Don’t clear the screen after quitting a manual page
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPAGER="less -X"
 
 # Always enable colored `grep` output
@@ -20,7 +28,7 @@ export GREP_OPTIONS="--color=auto"
 export GREP_COLOR='1;33'
 
 # Colored `ls` output
-#export LSCOLORS='Gxfxcxdxdxegedabagacad'
+export LSCOLORS='Gxfxcxdxdxegedabagacad'
 
 # Vagrant config for parallels
 #export VAGRANT_DEFAULT_PROVIDER=parallels
@@ -28,12 +36,35 @@ export GREP_COLOR='1;33'
 # AWS
 export JAVA_HOME=$(/usr/libexec/java_home)
 #export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1/
+#export EC2_URL=https://ec2.eu-central-1.amazonaws.com
 #export AWS_ACCESS_KEY=
 #export AWS_SECRET_KEY=
-#export EC2_URL=https://ec2.eu-central-1.amazonaws.com
+#export AWS_DEFAULT_REGION=eu-central-1
 
 # Homebrew
-#export HOMEBREW_GITHUB_API_TOKEN=""
+#export HOMEBREW_GITHUB_API_TOKEN=
+
+# Golang
+export GOPATH=/Users/z0r1k/projects/osram/go
+export GOBIN=$GOPATH/bin
+
+# NPM
+#export OLT_NPM_TOKEN=
+#export NPM_TOKEN=$OLT_NPM_TOKEN
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+
+# Editor
+#export EDITOR="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+# curl
+export LDFLAGS="-L/usr/local/opt/curl/lib"
+export CPPFLAGS="-I/usr/local/opt/curl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig"
+
+# Azure
+#export AZURE_CLIENT_SECRET=
 
 # PATH settings
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/opt/go/libexec/bin:/usr/local/share/npm/bin:$EC2_HOME/bin:/usr/local/opt/curl/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/opt/curl/bin:/usr/local/share/npm/bin:/usr/local/opt/go/libexec/bin:$EC2_HOME/bin:$GOPATH:$GOBIN:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
