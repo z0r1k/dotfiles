@@ -1,6 +1,6 @@
 [user]
 	name = Mykhailo Lieibenson
-	email = m.lieibenson@osram.com
+	email = mykhailo.lieibenson@audibene.de
 
 [core]
 	excludesfile = /Users/z0r1k/.gitignore_global
@@ -52,6 +52,7 @@
 
 [url "git@prod01-gitlab01.geeny.local:"]
     insteadOf = https://prod01-gitlab01.geeny.local/
-
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/
+[url "git@github.com:"]
+	insteadOf = https://github.com/
