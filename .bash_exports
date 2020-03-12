@@ -45,12 +45,12 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 #export HOMEBREW_GITHUB_API_TOKEN=
 
 # Golang
-export GOPATH=/Users/z0r1k/projects/osram/go
+export GOPATH=/Users/z0r1k/projects/go
 export GOBIN=$GOPATH/bin
+export GO111MODULE=auto
 
 # NPM
-#export OLT_NPM_TOKEN=
-#export NPM_TOKEN=$OLT_NPM_TOKEN
+export OLT_NPM_TOKEN=
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
