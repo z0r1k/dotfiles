@@ -41,19 +41,26 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 #export AWS_SECRET_KEY=
 #export AWS_DEFAULT_REGION=eu-central-1
 
+# AWS Audibene Code Artifact token (NPM, DOCKER)
+_aws_aud_assume_role_testing
+export CODEARTIFACT_AUTH_TOKEN=$(aws --profile aud-shared-testing codeartifact get-authorization-token --domain audibene --domain-owner 199636132489 --query authorizationToken --output text)
+
+# NPM
+#export OLT_NPM_TOKEN=6632d449-b0a6-40ef-946b-963f9456f625
+#export NPM_TOKEN=$OLT_NPM_TOKEN
+export NPM_TOKEN=
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+
 # Homebrew
-#export HOMEBREW_GITHUB_API_TOKEN=
+#export HOMEBREW_GITHUB_API_TOKEN=""
 
 # Golang
 export GOPATH=/Users/z0r1k/projects/go
 export GOBIN=$GOPATH/bin
 export GO111MODULE=auto
-
-# NPM
-export OLT_NPM_TOKEN=
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
+#export GOPRIVATE=github.com/Audibene-GMBH/*
 
 # Editor
 #export EDITOR="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
@@ -64,7 +71,7 @@ export CPPFLAGS="-I/usr/local/opt/curl/include"
 export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig"
 
 # Azure
-#export AZURE_CLIENT_SECRET=
+#export AZURE_CLIENT_SECRET=0c9be38d-66bc-414c-acee-295e5a989174
 
 # PATH settings
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/opt/curl/bin:/usr/local/share/npm/bin:/usr/local/opt/go/libexec/bin:$EC2_HOME/bin:$GOPATH:$GOBIN:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/X11/bin:/usr/local/opt/curl/bin:/usr/local/opt/go/libexec/bin:$GOPATH:$GOBIN:/usr/local/share/npm/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$(brew --prefix)/Cellar/node/15.0.1/bin:$EC2_HOME/bin:$PATH

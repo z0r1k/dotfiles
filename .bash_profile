@@ -1,7 +1,7 @@
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{bash_exports,bash_aliases,bash_prompt,path,functions,extra}; do
+for file in ~/.{functions,bash_exports,bash_aliases,bash_prompt,bashrc,extra}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
@@ -58,6 +58,9 @@ complete -C /usr/local/bin/vault vault
 
 # Kube completion
 source <(kubectl completion bash)
+
+# Makefile completion
+complete -o nospace -F _makefile_completions make
 
 # This loads nvm bash_completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

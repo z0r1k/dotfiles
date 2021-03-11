@@ -1,0 +1,35 @@
+_makefile_completions()
+{
+    if [ ! -e ./Makefile ]; then
+        return
+    fi
+
+    # filter out flag arguments
+    filtered_comp_words=()
+    for comp_word in ${COMP_WORDS[@]}; do
+        if [[ $comp_word != -* ]]; then
+            filtered_comp_words+=("$comp_word")
+        fi
+    done
+
+    # do nothing if a non-flag argument has already been added
+    if [[ "${#filtered_comp_words[@]}" -gt 2 ]]; then
+        return
+    fi
+
+    word_list="$(grep '^[^\.][-a-zA-Z\.0-9_\/]*:' ./Makefile | sed 's/:.*//g' | uniq)"
+    COMPREPLY=($(compgen -W "${word_list}" "${filtered_comp_words[1]}"))
+}
+
+_aws_aud_assume_role_testing()
+{
+    SESSION_DATA=$(aws sts --profile aud-iam assume-role \
+        --role-session-name awscli-bash-session \
+        --role-arn arn:aws:iam::479874931349:role/DeveloperAdminTeleaudiology \
+        --serial-number arn:aws:iam::119197915179:mfa/mykhailo.lieibenson \
+        --token-code $(mfa otp aud))
+    aws configure --profile aud-shared-testing set aws_access_key_id "$(echo ${SESSION_DATA} | jq -r '.Credentials.AccessKeyId')"
+    aws configure --profile aud-shared-testing set aws_secret_access_key "$(echo ${SESSION_DATA} | jq -r '.Credentials.SecretAccessKey')"
+    aws configure --profile aud-shared-testing set aws_session_token "$(echo ${SESSION_DATA} | jq -r '.Credentials.SessionToken')"
+    aws configure --profile aud-shared-testing set aws_session_expiration "$(echo ${SESSION_DATA} | jq -r '.Credentials.Expiration')"
+}
